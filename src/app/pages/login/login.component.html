@@ -1,0 +1,51 @@
+<div class="container">
+    <form [formGroup]="loginForm" class="form" (ngSubmit)="onSubmit()">
+        <h3>Login</h3>
+        <div class="form-wrapper">
+            <label>Email: </label>
+            <input class="form-input" [(ngModel)]="email" id="email" type="email" placeholder="user@example.com" formControlName="email">
+            <div *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)">
+                <small *ngIf="loginForm.get('email')?.errors?.['required']">
+                    Email is required.
+                </small>
+                <small *ngIf="loginForm.get('email')?.errors?.['email']">
+                    Invalid email format.
+                </small>
+            </div>
+        </div>
+        <div class="form-wrapper">
+            <label>Password: </label>
+            <input class="form-input" [(ngModel)]="password" type="password" placeholder="Please input your password" formControlName="password">
+            <div *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)">
+                <small *ngIf="loginForm.get('password')?.errors?.['required']">
+                    Password is required.
+                </small>
+                <small *ngIf="loginForm.get('password')?.errors?.['minlength']">
+                    Password must be at least 12 characters.
+                </small>
+                <small *ngIf="loginForm.get('password')?.errors?.['strong']">
+                    Password must contain at least one uppercase letter, one lowercase letter, one number and one special character
+                </small>
+            </div>
+        </div>
+        <div class="form-login">
+            <span>Don't have an account?</span>
+            <a routerLink="/register" class="form-login-link">Sign Up</a>
+        </div>
+        <button type="submit" class="btn-submit" [disabled]="loginForm.invalid">Login</button>
+
+        <div class="form-or">
+            <div class="sign-left"></div>
+            <span>Or Login with</span>
+            <div class="sign-right"></div>
+        </div>
+
+        <button type="submit" class="btn-google">
+            <img class="google-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/1200px-Google_%22G%22_logo.svg.png" alt="">
+            <span>Sign in with Google</span>
+        </button>
+    </form>
+    <div class="image-holder">
+        <img src="#" alt="">
+    </div>
+</div>

@@ -1,0 +1,63 @@
+<div class="container">
+    <form action="" class="form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <h3>Sign Up</h3>
+        <div class="form-wrapper">
+            <label>Username: </label>
+            <input class="form-input" type="text" placeholder="User123" [(ngModel)]="username" formControlName="username">
+            <div *ngIf="registerForm.get('username')?.invalid && (registerForm.get('username')?.dirty || registerForm.get('username')?.touched)">
+                <small *ngIf="registerForm.get('username')?.errors?.['required']">
+                    Username is required.
+                </small>
+                <small *ngIf="registerForm.get('username')?.errors?.['minlength'] || registerForm.get('username')?.errors?.['maxlength']">
+                    Username must be 5-12 characters.
+                </small>
+            </div>
+        </div>
+        <div class="form-wrapper">
+            <label>Email: </label>
+            <input class="form-input" type="email" placeholder="user@example.com" [(ngModel)]="email" formControlName="email">
+            <div *ngIf="registerForm.get('email')?.invalid && (registerForm.get('email')?.dirty || registerForm.get('email')?.touched)">
+                <small *ngIf="registerForm.get('email')?.errors?.['required']">
+                    Email is required.
+                </small>
+                <small *ngIf="registerForm.get('email')?.errors?.['email']">
+                    Invalid email format.
+                </small>
+            </div>
+        </div>
+        <div class="form-wrapper">
+            <label>Password: </label>
+            <input class="form-input" type="password" placeholder="Please input your password" [(ngModel)]="password" formControlName="password">
+            <div *ngIf="registerForm.get('password')?.invalid && (registerForm.get('password')?.dirty || registerForm.get('password')?.touched)">
+                <small *ngIf="registerForm.get('password')?.errors?.['required']">
+                    Password is required.
+                </small>
+                <small *ngIf="registerForm.get('password')?.errors?.['minlength']">
+                    Password must be at least 12 characters.
+                </small>
+                <small *ngIf="registerForm.get('password')?.errors?.['strong']">
+                    Password must contain at least one uppercase letter, one lowercase letter, one number and one special character
+                </small>
+            </div>
+        </div>
+        <div class="form-login">
+            <span>Already have an account?</span>
+            <a routerLink="/login" class="form-login-link">Login</a>
+        </div>
+        <button type="submit" class="btn-submit">Sign Up</button>
+
+        <div class="form-or">
+            <div class="sign-left"></div>
+            <span>Or Login with</span>
+            <div class="sign-right"></div>
+        </div>
+
+        <button class="btn-google" type="submit">
+            <img class="google-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/1200px-Google_%22G%22_logo.svg.png" alt="">
+            <span>Sign in with Google</span>
+        </button>
+    </form>
+    <div class="image-holder">
+        <!-- <img src="https://travelwp.physcode.com/main-demo/wp-content/uploads/sites/7/2023/07/register.png" alt=""> -->
+    </div>
+</div>

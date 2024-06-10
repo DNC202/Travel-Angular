@@ -1,0 +1,38 @@
+<ul>
+    <li *ngFor="let tour of tours">
+        <a [routerLink]="['/tours', tour.id]" routerLinkActive="router-link-active" >
+            <img src="{{'../../../../../assets/images/tours/' + tour.thumbnail}}" alt="{{tour.title}} thumbnail">
+            <div class="container-tour">
+                <div class="container-heading">
+                    <h3>{{tour.title}}</h3>
+                </div>
+                <div class="container-rating">
+                    <i class="fas fa-star"></i>
+                    <p>{{tour.rating}}</p>
+                </div>
+                <div class="container-price-duration">
+                    <p class="price">${{tour.price}}</p>
+                    <p class="duration">{{tour.duration}}</p>
+                </div>  
+            </div>
+        </a>
+    </li>
+</ul>
+
+<!-- <div class="pagination">
+    <button (click)="goToPage(1)" [disabled]="currentPage === 1">
+        <i class="fa-solid fa-angles-left"></i>
+    </button>
+    <button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">
+        <i class="fa-solid fa-arrow-left"></i>
+    </button>
+
+    <span>Page {{currentPage}} of {{totalPages}}</span>
+
+    <button (click)="goToPage(currentPage + 1)" [disabled]="currentPage === totalPages">
+        <i class="fa-solid fa-arrow-right"></i>
+    </button>
+    <button (click)="goToPage(totalPages)" [disabled]="currentPage === totalPages">
+        <i class="fa-solid fa-angles-right"></i>
+    </button>
+</div> -->

@@ -1,0 +1,49 @@
+.row {
+    display: flex;
+}
+.container {
+    filter: brightness(90%);
+    width: 300px;
+    height: 400px;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    color: #ffffff;
+
+    .background-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+        border-radius: 20px;
+    }
+
+    .title {
+        position:relative;
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    .description {
+        font-size: 16px;
+        font-weight: 400;
+    }
+
+    button {
+        background-color: none;
+        color: #ffffff;
+        border: solid 1px #ffffff;
+        border-radius: 10px;
+        padding: 10px 20px;
+        margin-top: 20px;
+    }
+}

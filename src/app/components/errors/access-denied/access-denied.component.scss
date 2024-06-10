@@ -1,0 +1,39 @@
+.access-denied {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    background-color: #f2f2f2;
+  
+    .lock-icon {
+      // Style for lock icon
+      font-size: 80px;
+
+      margin-bottom: 20px;
+    }
+  
+    h1 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+  
+    p {
+      color: #666;
+      margin-bottom: 30px;
+    }
+  
+    button {
+      padding: 10px 20px;
+      background-color: #d9534f;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      &:hover {
+        background-color: darken(#d9534f, 10%);
+      }
+    }
+  }
+  

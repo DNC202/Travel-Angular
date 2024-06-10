@@ -1,0 +1,19 @@
+<app-header></app-header>
+<div class="container">
+    <div class="wrapper-search-field">
+        <div class="tour-search-field">
+            <h3 class="item-filter-heading">Where & When</h3>
+            <select aria-label="Select destination" [(ngModel)]="search_destinationId" name="destination" id="destination" class="pa-destination" placeholder="Select destination" [(ngModel)]="selectedDestination">
+                <option value="0">Select destination</option>
+                <option *ngFor="let item of destinations" [value]="item.id">{{item.name}}</option>
+            </select>
+            <input type="text" placeholder="Search by name" [(ngModel)]="search_name">
+        </div>
+        
+        <div class="button">
+            <button (click)="search(search_destinationId, search_name)">Search Tour</button>
+        </div>
+    </div>
+    <app-tour-list [tours]="toursSearch"></app-tour-list>
+</div>
+<app-footer></app-footer>

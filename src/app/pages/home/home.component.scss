@@ -1,0 +1,30 @@
+section {
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+    margin-bottom: 96px;
+    
+    .container {
+        margin: 20px;
+
+        .title {
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 1.3em;
+        }
+
+        .description {
+            font-size: 16px;
+            line-height: 1.3em;
+            padding: 10px 0;
+            color: #4f5e71;
+            opacity: 0.8;
+        }
+    }
+}
+
+h1 {
+    margin: 24px;
+    font-weight: bold;
+    font-size: 32px;
+}

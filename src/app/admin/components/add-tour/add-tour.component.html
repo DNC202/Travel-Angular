@@ -1,0 +1,53 @@
+<div class="container">
+    <div mat-dialog-title>
+        <h1>Add Tour Form</h1>
+    </div>
+    <form [formGroup]="tourForm" (ngSubmit)="onSubmit()">
+        <div mat-dialog-content>
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Title</mat-label>
+                    <input type="text" matInput formControlName="title" placeholder="Title">
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Select Destination</mat-label>
+                    <mat-select formControlName="destination">
+                        <mat-option *ngFor="let destination of destinations" [value]="destination.id">
+                            {{ destination.name }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Rating</mat-label>
+                    <input type="number" matInput formControlName="rating" placeholder="Rating (0.0 - 5.0)" step="0.1" min="0" max="5">
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Price</mat-label>
+                    <input type="number" matInput formControlName="price" placeholder="99.99" min="10" max="999">
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Duration</mat-label>
+                    <input type="text" matInput formControlName="duration" placeholder="2 days 1 night">
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <!-- <mat-form-field appearance="outline"> -->
+                    <!-- <mat-label>Thumbnail</mat-label> -->
+                    <input type="file" accept="image/*" formControlName="thumbnail" (change)="onFileSelected($event)" placeholder="image.jpg">
+                <!-- </mat-form-field> -->
+            </div>
+        </div>
+        <div mat-dialog-actions class="action">
+            <button mat-raised-button type="button" (click)="onCancel()">Cancel</button>
+            <button mat-raised-button color="primary" type="submit">Save</button>
+        </div>
+    </form>    
+</div>

@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="container" *ngFor="let dest of destinations"> 
+        <img src="{{'../../../assets/images/destinations/' + dest.image}}" alt="{{ dest.name }}" class="background-image">
+        <div class="title">
+            {{dest.name}}
+        </div>
+        <div class="description">
+            {{dest.description}}
+        </div>
+        <div class="button">
+            <button>See All Tours</button>
+        </div>
+    </div>
+</div>
