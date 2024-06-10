@@ -41,12 +41,6 @@ export class ToursService {
     );
   }
 
-  // uploadFile(formData: FormData): Observable<string> {
-  //   return this._httpClient.post<string>(this.apiUrl+'/upload', formData).pipe(
-  //     catchError(this.handleError<string>('uploadFile'))
-  //   )
-  // }
-
   deleteTour(id: number): Observable<Tour> {
     return this._httpClient.delete<Tour>(this.apiUrl + '/delete/' + id, this.httpOptions).pipe(
       tap( _ => {console.log('Tour deleted successfully')}),
@@ -54,8 +48,8 @@ export class ToursService {
     );
   }
 
-  updateTour(id: number, tour: Tour): Observable<Tour> {
-    return this._httpClient.put<Tour>(`${this.apiUrl}/edit/${id}`, tour, this.httpOptions).pipe(
+  updateTour(id: number, formData: FormData): Observable<Tour> {
+    return this._httpClient.put<Tour>(`${this.apiUrl}/edit/${id}`, formData).pipe(
       tap((tour: Tour) => console.log(`Tour updated successfully with id=${id}`)),
       catchError(this.handleError<Tour>('updateTour'))
     );

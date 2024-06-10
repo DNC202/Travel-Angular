@@ -56,7 +56,6 @@ export class AddTourComponent implements OnInit {
     this.destinationService.getAllDestinations().subscribe(dest => {
       this.destinations = dest;
     })
-    console.log(this.destinations)
   }
 
   onFileSelected(event: Event): void {
@@ -64,7 +63,6 @@ export class AddTourComponent implements OnInit {
     if (input.files && input.files.length > 0) {
       this.selectedFile = input.files[0];
     }
-    console.log(this.selectedFile)
   }
 
   uploadFile(formData: FormData){
@@ -78,13 +76,11 @@ export class AddTourComponent implements OnInit {
     if (this.tourForm.valid) {
       this.uploadFile(formData);
       const formValues = this.tourForm.value;
-      console.log(formValues)
       formData.append('Title', formValues.title);
       formData.append('DestinationId', formValues.destination);
       formData.append('Rating', formValues.rating);
       formData.append('Price', formValues.price);
       formData.append('Duration', formValues.duration);
-      console.log(formData)
       this.tourService.addTour(formData).subscribe(
         (response: any) => {
           console.log('Tour added successfully:', response);

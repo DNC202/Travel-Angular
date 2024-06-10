@@ -57,8 +57,6 @@ export class EditTourComponent implements OnInit{
     const input = event.target as HTMLInputElement;
     if (input.files && input.files.length > 0) {
       this.selectedFile = input.files[0];
-      this.editForm.patchValue({ thumbnail: this.selectedFile.name });
-      console.log(this.selectedFile.name);
     }
   }
 
@@ -69,15 +67,30 @@ export class EditTourComponent implements OnInit{
     console.log(this.destinations)
   }
 
+  uploadFile(formData: FormData){
+    if(this.selectedFile){
+      formData.append('file', this.selectedFile);
+    }
+  }
+
   onSubmit(): void {
-    const newTour: Tour = this.editForm.value;
-      console.log(newTour)
-      this.tourService.updateTour(newTour.id, newTour).subscribe(
-        (response: Tour) => {
+    const formData = new FormData();
+    if (this.editForm.valid) {
+      this.uploadFile(formData);
+      const formValues = this.editForm.value;
+      formData.append('Title', formValues.title);
+      formData.append('DestinationId', formValues.destinationId);
+      formData.append('Rating', formValues.rating);
+      formData.append('Price', formValues.price);
+      formData.append('Duration', formValues.duration);
+      formData.append('Thumbnail', formValues.thumbnail)
+      this.tourService.updateTour(formValues.id ,formData).subscribe(
+        (response: any) => {
           console.log('Tour updated successfully:', response);
           this.dialogRef.close();
-        }
+        },
       );
+    }
   }
 
   onCancel(): void {

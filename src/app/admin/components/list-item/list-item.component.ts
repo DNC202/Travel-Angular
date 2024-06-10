@@ -50,6 +50,7 @@ export class ListItemComponent implements AfterViewInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
+        this.table.dataSource = result;
         this.getAllTours();
       }
     });
