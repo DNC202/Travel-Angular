@@ -42,7 +42,7 @@
     <!-- Thumbnail Column  -->
     <ng-container matColumnDef="thumbnail">
       <th mat-header-cell *matHeaderCellDef mat-sort-header>Image</th>
-      <td *matCellDef="let row"><img  src="{{'../../../../assets/images/tours/'+ row.thumbnail}}" alt=""></td>
+      <td *matCellDef="let row"><img  src="{{row.thumbnail}}" alt=""></td>
     </ng-container>
 
     <!-- Icon button for edit and delete -->
